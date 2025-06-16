@@ -21,9 +21,10 @@ sizeof(long int),
 sizeof(long long int),
 sizeof(float)
 };
+int i;
 
 /* Print outcome */
-for (int i = 0; i < 5; i++)
+for (i = 0; i < 5; i++)
 {
 if (i == 1)
 {
