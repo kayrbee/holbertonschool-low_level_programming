@@ -7,7 +7,13 @@
 int main(void)
 {
 /* Declare char and size variables in arrays */
-const char *types_array[5] = {"char", "int", "long int", "long long int", "float"};
+const char *types_array[5] = {
+"char",
+"int",
+"long int",
+"long long int",
+"float"
+};
 int size_array[5] = {
 sizeof(char),
 sizeof(int),
