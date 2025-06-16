@@ -1,6 +1,8 @@
 #include <stdio.h>
 /**
- * Main uses puts to print a simple string and returns 0
+ * main - Prints a simple string
+ * Description: my first C function
+ * Return: 0 to conclude
  */
 int main(void)
 {
