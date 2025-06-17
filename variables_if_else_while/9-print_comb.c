@@ -10,14 +10,21 @@ int main(void)
 
 	d = 48;
 
-	while (d < 57)
+	while (d <= 57)
 	{
 		putchar(d);
-		putchar(44);
-		putchar(32);
+		if (d != 57)
+		{
+			putchar(44);
+			putchar(32);
+		}
+		else
+		{
+			putchar('\n');
+		}
+
 		d++;
 	}
-	putchar(57);
 
 	return (0);
 }
