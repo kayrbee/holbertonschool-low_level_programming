@@ -1,9 +1,9 @@
-#include <stdio.h>
+#include "_putchar.h"
 
 /**
  * main - print the literal string _putchar
  * Return: 0
- * Description: only use putchar
+ * Description: only use _putchar
  */
 int main(void)
 {
@@ -12,9 +12,9 @@ int main(void)
 
 	for (i = 0; myString[i] != '\0'; i++)
 	{
-		putchar(myString[i]);
+		_putchar(myString[i]);
 	}
-	putchar('\n');
+	_putchar('\n');
 
 	return (0);
 }
