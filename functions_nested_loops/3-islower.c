@@ -1,4 +1,4 @@
-#include "head.h"
+#include "main.h"
 
 /**
  * _islower - similar to islower but hand-rolled
