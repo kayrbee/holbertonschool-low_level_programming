@@ -7,12 +7,6 @@
 
 void print_alphabet(void);
 
-int main(void)
-{
-	print_alphabet();
-	return (0);
-}
-
 /**
  * print_alphabet - Defines the function
  * Description: prints the alphabet with _putchar
@@ -28,4 +22,9 @@ void print_alphabet(void)
 	_putchar('\n');
 }
 
+int main(void)
+{
+	print_alphabet();
+	return (0);
+}
 
