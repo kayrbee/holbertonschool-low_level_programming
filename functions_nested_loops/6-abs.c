@@ -8,10 +8,11 @@
 int _abs(int)
 {
 	/* Define */
-	int i;
+	int i = int;
+	int j;
 
-	i = (unsigned int) n;
+	j = (unsigned int) i;
 
-	return (i);
+	return (j);
 }
 
