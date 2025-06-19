@@ -2,17 +2,21 @@
 
 /**
  * _abs - returns the absolute value of an integer
- * @int: passed from main for evaluation
- * Return: tbc!
+ * @n: passed from main for evaluation
+ * Return: unsigned integer
  */
-int _abs(int)
+int _abs(int n)
 {
-	/* Define */
-	int i = int;
-	int j;
+	int i;
 
-	j = (unsigned int) i;
+	if (n < 0)
+	{
+		i = (n / -1);
+	} else
+	{
+		i = n;
+	}
 
-	return (j);
+	return (i);
 }
 
