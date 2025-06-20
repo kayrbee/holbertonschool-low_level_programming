@@ -5,19 +5,18 @@
  * @n: passed from main for processing
  * Return: int last_digit
  */
+
 int print_last_digit(int n)
 {
-	/* implement */
 	int last_digit;
 
-	/* handle negative numbers */
 	if (n < 0)
 	{
-		n = (n / -1);
+		n = (n * -1);
 	}
 
 	last_digit = (n % 10);
-
+	_putchar('0' + last_digit);
 	return (last_digit);
 }
 
