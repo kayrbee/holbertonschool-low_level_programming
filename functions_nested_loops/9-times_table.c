@@ -54,7 +54,5 @@ void times_table(void)
 		}
 		row++;
 	}
-	_putchar('\n');
-	
 }
 
