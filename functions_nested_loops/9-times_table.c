@@ -6,11 +6,7 @@
  */
 void times_table(void)
 {
-	int column = 0;
-	int row = 0;
-	int result;
-	int res_ind_1;
-	int res_ind_0;
+	int column = 0, row = 0, result, res_ind_1, res_ind_0;
 
 	while (row <= 9)
 	{
@@ -20,11 +16,9 @@ void times_table(void)
 			result = (row * column);
 			res_ind_0 = result % 10;
 			res_ind_1 = result / 10;
-
 			if (column != 0)
 			{
 				_putchar(',');
-
 				if (result < 10)
 				{
 					_putchar(' ');
@@ -35,7 +29,6 @@ void times_table(void)
 					_putchar(' ');
 				}
 			}
-			
 			if (result >= 10)
 			{
 				_putchar('0' + res_ind_1);
@@ -45,7 +38,6 @@ void times_table(void)
 			{
 				_putchar('0' + res_ind_0);
 			}
-
 			if (column == 9)
 			{
 				_putchar('\n');
