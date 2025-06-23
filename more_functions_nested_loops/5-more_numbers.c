@@ -9,7 +9,7 @@ void more_numbers(void)
 	int row = 0;
 	int column;
 
-	while (row <= 10)
+	while (row < 10)
 	{
 		column = 0;
 		while (column < 15)
