@@ -12,29 +12,27 @@ int main(void)
 	int fizz = 3;
 	int fizzbuzz = (fizz * buzz);
 
-	printf("%d", start++);
-
 	while (start <= stop)
 	{
-		int find_fizzbuzz = start % fizzbuzz;
-		int find_buzz = start % buzz;
-		int find_fizz = start % fizz;
-
-		if (find_fizzbuzz == 0)
+		if (start != 1)
 		{
-			printf(" FizzBuzz");
+			printf(" ");
 		}
-		else if (find_buzz == 0)
+		if ((start % fizzbuzz) == 0)
 		{
-			printf(" Buzz");
+			printf("FizzBuzz");
 		}
-		else if (find_fizz == 0)
+		else if ((start % buzz) == 0)
 		{
-			printf(" Fizz");
+			printf("Buzz");
+		}
+		else if ((start % fizz) == 0)
+		{
+			printf("Fizz");
 		}
 		else
 		{
-			printf(" %d", start);
+			printf("%d", start);
 		}
 		start++;
 	}
