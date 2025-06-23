@@ -9,15 +9,17 @@ void fizz_buzz(void)
 {
 	int start = 1;
 	int stop = 100;
+	int buzz = 5;
 	int fizz = 3;
+	int fizzbuzz = (fizz * buzz);
 
 	printf("%d", start++);
 
 	while (start <= stop)
 	{
-		int find_fizzbuzz = start % 15;
-		int find_buzz = start % 5;
-		int find_fizz = start % 3;
+		int find_fizzbuzz = start % fizzbuzz;
+		int find_buzz = start % buzz;
+		int find_fizz = start % fizz;
 
 		if (find_fizzbuzz == 0)
 		{
