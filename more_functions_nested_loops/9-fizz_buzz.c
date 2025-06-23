@@ -1,10 +1,10 @@
 #include <stdio.h>
 
 /**
- * fizz_buzz - replace multiples of 3, 5 and (3*5) with text
- * Return: void
+ * main - replace multiples of 3, 5 and (3*5) with text
+ * Return: 0 if successful
  */
-void fizz_buzz(void)
+int main(void)
 {
 	int start = 1;
 	int stop = 100;
@@ -39,5 +39,6 @@ void fizz_buzz(void)
 		start++;
 	}
 	putchar('\n');
+	return (0);
 }
 
