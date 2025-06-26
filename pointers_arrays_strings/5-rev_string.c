@@ -1,5 +1,6 @@
 #include "main.h"
 #include <stdio.h>
+#include <string.h>
 
 /**
  * rev_string - reverses the elements in a string array
@@ -28,6 +29,5 @@ void rev_string(char *s)
 		s[inverse_e] = temp;
 		element++;
 	}
-	printf("\n");
 }
 
