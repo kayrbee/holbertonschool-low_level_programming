@@ -11,7 +11,6 @@ void print_array(int *a, int n)
 {
 	int element = 0;
 	int elements_to_print = n;
-	int array_length;
 
 	printf("%d", a[element]);
 	element++;
