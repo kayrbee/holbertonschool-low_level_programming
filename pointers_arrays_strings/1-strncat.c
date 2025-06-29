@@ -10,6 +10,7 @@
 char *_strncat(char *dest, char *src, int n)
 {
 	int startof_new = 0;
+	int lengthof_new = 0;
 	int endof_base = 0;
 
 	while (dest[endof_base] != '\0')
@@ -17,11 +18,27 @@ char *_strncat(char *dest, char *src, int n)
 		endof_base++;
 	}
 
-	while (startof_new < n)
+	while (src[lengthof_new] != '\0')
 	{
-		dest[endof_base] = src[startof_new];
-		startof_new++;
-		endof_base++;
+		lengthof_new++;
+	}
+	if (lengthof_new >= n)
+	{
+		while (startof_new < n)
+		{
+			dest[endof_base] = src[startof_new];
+			startof_new++;
+			endof_base++;
+		}
+	}
+	else
+	{
+		while (startof_new < lengthof_new)
+		{
+			dest[endof_base] = src[startof_new];
+			startof_new++;
+			endof_base++;
+		}
 	}
 
 	endof_base = endof_base + 1;
