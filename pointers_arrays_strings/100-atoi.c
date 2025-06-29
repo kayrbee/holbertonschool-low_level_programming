@@ -7,4 +7,14 @@
  */
 int _atoi(char *s)
 {
+	int element = 0;
+
+	while (element != '\0')
+	{
+		if (element >= '0' && element <= '9')
+		{
+			final_digit = s[element];
+		}
+	}
 }
+
