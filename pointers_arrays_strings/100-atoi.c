@@ -8,7 +8,7 @@
 int _atoi(char *s)
 {
 	int element = 0;
-	int final_integer = 0;
+	unsigned int final_integer = 0;
 	int sign = 1;
 	int count_sign = 0;
 	int in_progress = 0;
@@ -37,10 +37,11 @@ int _atoi(char *s)
 		element++;
 	}
 
-	if (count_sign % 2 != 0)
+	if (count_sign % 2 != 0 || final_integer == 2147483648)
 	{
 		sign = -1;
 	}
-	return ((final_integer * sign));
+	
+	return (int)((final_integer * sign));
 }
 
