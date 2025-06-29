@@ -1,4 +1,5 @@
 #include "main.h"
+#include <stdio.h>
 
 /**
  * _atoi: convert a string array to an integer LITE
@@ -10,11 +11,11 @@ int _atoi(char *s)
 	int element = 0;
 	int final_integer = 0;
 
-	while (element != '\0')
+	while (s[element] != '\0')
 	{
-		if (element >= '0' && element <= '9')
+		if (s[element] >= '0' && s[element] <= '9')
 		{
-			final_integer = s[element];
+			final_integer = s[element] - 48;
 		}
 		element++;
 	}
