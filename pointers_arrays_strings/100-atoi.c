@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * _atoi: convert a string array to an integer LITE
+ * _atoi - convert a string array to an integer LITE
  * @s: string, passed from main
  * Return: integer including sign
  */
@@ -28,12 +28,12 @@ int _atoi(char *s)
 				eval_done = 1;
 			}
 		}
-		
+
 		if (s[element] == '-' && in_progress == 0)
 		{
 			count_sign++;
 		}
-	
+
 		element++;
 	}
 
