@@ -15,7 +15,7 @@ int _atoi(char *s)
 	{
 		if (s[element] >= '0' && s[element] <= '9')
 		{
-			final_integer = s[element] - 48;
+			final_integer = (final_integer * 10) + (s[element] - 48);
 		}
 		element++;
 	}
@@ -28,9 +28,9 @@ int main(void)
 
     nb = _atoi("9");
     printf("%d\n", nb);
-/*    nb = _atoi("98");
+    nb = _atoi("98");
     printf("%d\n", nb);
-    nb = _atoi("-402");
+/*    nb = _atoi("-402");
     printf("%d\n", nb);
     nb = _atoi("          ------++++++-----+++++--98");
     printf("%d\n", nb);
