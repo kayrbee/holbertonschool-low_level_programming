@@ -41,7 +41,7 @@ int _atoi(char *s)
 	{
 		sign = -1;
 	}
-	
-	return (int)((final_integer * sign));
+
+	return ((int)(final_integer * sign));
 }
 
