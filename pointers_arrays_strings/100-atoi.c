@@ -15,6 +15,7 @@ int _atoi(char *s)
 		{
 			final_digit = s[element];
 		}
+		element++;
 	}
 }
 
