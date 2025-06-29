@@ -10,6 +10,8 @@ int _atoi(char *s)
 {
 	int element = 0;
 	int final_integer = 0;
+	int sign = 1;
+	int count_sign = 0;
 
 	while (s[element] != '\0')
 	{
@@ -17,9 +19,29 @@ int _atoi(char *s)
 		{
 			final_integer = (final_integer * 10) + (s[element] - 48);
 		}
+
 		element++;
 	}
-	return (final_integer);
+
+	element = 0;
+	while (s[element] != '\0')
+	{
+		if (s[element] == '-')
+		{
+			count_sign++;
+		}
+
+		if (count_sign % 2 != 0)
+		{
+			sign = -1;
+		}
+		else
+		{
+			sign = 1;
+		}
+		element++;
+	}
+	return ((final_integer * sign));
 }
 
 int main(void)
@@ -30,10 +52,10 @@ int main(void)
     printf("%d\n", nb);
     nb = _atoi("98");
     printf("%d\n", nb);
-/*    nb = _atoi("-402");
+    nb = _atoi("-402");
     printf("%d\n", nb);
     nb = _atoi("          ------++++++-----+++++--98");
-    printf("%d\n", nb);
+/*    printf("%d\n", nb);
     nb = _atoi("214748364");
     printf("%d\n", nb);
     nb = _atoi("0");
