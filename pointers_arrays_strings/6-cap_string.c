@@ -1,12 +1,29 @@
 #include "main.h"
-#include <stdio.h>
-char *cap_string(char *);
+
+
+/**
+ * is_separator - helper function
+ * @c: character to check
+ * Return: true when char is separator
+ */
+int is_separator(char c)
+{
+	const char *separators = " \n\t,;.!?\"(){}";
+	int i;
+
+	for (i = 0; separators[i] != 0; i++)
+	{
+		if (c == separators[i])
+			return (1);
+	}
+	return (0);
+}
+
 /**
  * cap_string - capitalise each word in a string
  * @s: string to be parsed and modified in-place
  * Return: string pointer
  */
-
 char *cap_string(char *s)
 {
 	int e = 0;
@@ -17,12 +34,7 @@ char *cap_string(char *s)
 		s[e] = s[e] - 32;
 	}
 
-	int is_separator(char c)
-	{
-		return (c == ' ' || c == '\n' || c == '\t' || c == ',' || c == ';' || c == '.' || c == '!' || c == '?' || c == '"' || c == '(' || c == ')' || c == '{' || c == '}');
-	}
-
-	while (s[e] != '0')
+	while (s[e] != '\0')
 	{
 		if (is_separator(s[e]))
 		{
@@ -35,18 +47,5 @@ char *cap_string(char *s)
 		e++;
 	}
 	return (s);
-}
-
-int main(void)
-{
-	char str[] = "Expect the best. Prepare for the worst. Capitalize on what comes.\nhello world! hello-world 0123456hello world\thello world.hello world\n";
-	char *ptr;
-
-	printf("ptr og: %s\n", ptr);
-	printf("str og: %s\n", str);
-	ptr = cap_string(str);
-	printf("ptr nw: %s\n", ptr);
-	printf("str nw: %s\n", str);
-	return (0);
 }
 
