@@ -8,20 +8,26 @@
 
 char *leet(char *s)
 {
+	const char find_chars[] = "aAeEoOtTlL";
+	const char swap_chars[] = "4433007711";
+
 	int e = 0;
+	int i = 0;
+	int eval_done = 0;
 
 	while (s[e] != '\0')
 	{
-		if (s[e] == 'a' || (s[e] == 'A'))
-			s[e] = '4';
-		else if (s[e] == 'e' || (s[e] == 'E'))
-			s[e] = '3';
-		else if (s[e] == 'o' || (s[e] == 'O'))
-			s[e] = '0';
-		else if (s[e] == 't' || (s[e] == 'T'))
-			s[e] = '7';
-		else if (s[e] == 'l' || (s[e] == 'L'))
-			s[e] = '1';
+		while (find_chars[i] != '\0' && eval_done == 0)
+		{
+			if (s[e] == find_chars[i])
+			{
+				s[e] = swap_chars[i];
+				eval_done = 1;
+			}
+			i++;
+		}
+		i = 0;
+		eval_done = 0;
 		e++;
 	}
 	return (s);
