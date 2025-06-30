@@ -8,50 +8,42 @@
  *     if n > src length, append null characters until n bytes are written
  * Return: pointer to dest
  */
+
 char *_strncpy(char *dest, char *src, int n)
 {
-	int startof_new = 0;
-	int lengthof_new = 0;
-	int endof_base = 0;
-
-	while (dest[endof_base] != '\0')
+	int e = 0;
+	int len_src = 0;
+	int len_dest = 0;
+	while (src[e] != '0')
+	{	
+		e++;
+	}
+	len_src = e;
+	e = 0;
+	while (dest[e] != 0)
 	{
-		endof_base++;
+		e++;
+	}
+	len_dest = e;
+	e = 0;
+	
+	while (e < len_src && e < n)
+	{
+		dest[len_dest] = src[e];
+		e++;
+		len_dest++;
 	}
 
-	while (src[lengthof_new] != '\0')
+	if (n > len_src)
 	{
-		lengthof_new++;
-	}
-	if (lengthof_new >= n)
-	{
-		while (startof_new < n)
+		while (e < n)
 		{
-			dest[endof_base] = src[startof_new];
-			startof_new++;
-			endof_base++;
+			dest[len_dest] = '\0';
+			len_dest++;
 		}
 	}
-	else
-	{
-		while (startof_new < lengthof_new)
-		{
-			dest[endof_base] = src[startof_new];
-			startof_new++;
-			endof_base++;
-		}
-
-		while (startof_new < n)
-		{
-			dest[endof_base] = '\0';
-			startof_new++;
-			endof_base++;
-		}
-	}
-
-	endof_base = endof_base + 1;
-	dest[endof_base] = '\0';
-
-	return (dest);
+	len_dest = len_dest + 1;
+	dest[len_dest] = '\0';
+	return(dest);
 }
 
