@@ -17,9 +17,14 @@ char *cap_string(char *s)
 		s[e] = s[e] - 32;
 	}
 
+	int is_separator(char c)
+	{
+		return (c == ' ' || c == '\n' || c == '\t' || c == ',' || c == ';' || c == '.' || c == '!' || c == '?' || c == '"' || c == '(' || c == ')' || c == '{' || c == '}');
+	}
+
 	while (s[e] != '0')
 	{
-		if (s[e] == ' ' || s[e] == '\n')
+		if (is_separator(s[e]))
 		{
 			next = e + 1;
 			if (s[next] >= 'a' && s[next] <= 'z')
@@ -34,8 +39,7 @@ char *cap_string(char *s)
 
 int main(void)
 {
-/*    char str[] = "Expect the best. Prepare for the worst. Capitalize on what comes.\nhello world! hello-world 0123456hello world\thello world.hello world\n"; */
-	char str[] = "start here\nnext word";
+	char str[] = "Expect the best. Prepare for the worst. Capitalize on what comes.\nhello world! hello-world 0123456hello world\thello world.hello world\n";
 	char *ptr;
 
 	printf("ptr og: %s\n", ptr);
