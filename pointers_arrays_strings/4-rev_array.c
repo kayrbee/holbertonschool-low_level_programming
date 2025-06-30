@@ -14,7 +14,7 @@ void reverse_array(int *a, int n)
 
 	if (n % 2 == 0)
 	{
-		while (first_element <= (n / 2))
+		while (first_element < (n / 2))
 		{
 			temp = a[first_element];
 			a[first_element] = a[mirror_element];
@@ -25,7 +25,7 @@ void reverse_array(int *a, int n)
 	}
 	else
 	{
-		while (first_element <= ((n + 1) / 2))
+		while (first_element < ((n + 1) / 2))
 		{
 			temp = a[first_element];
 			a[first_element] = a[mirror_element];
