@@ -1,4 +1,6 @@
 #include "main.h"
+#include <stdio.h>
+#include <string.h>
 /**
  * _strspn - count positive char matches in string from a given set of chars
  * @s: string to evaluate
@@ -9,30 +11,33 @@ unsigned int _strspn(char *s, char *accept)
 {
 	int element = 0;
 	int reference = 0;
-	int match = 0;
-	unsigned int length = 0;
+	unsigned int counter = 0;
 
-	while (s[element] != '\0') /* Loop through s */
+	while (s[element] != '\0')
 	{
-		while (accept[reference] != '\0' && match == 0) /* Loop through accept */
+		while (accept[reference] != '\0')
 		{
 			if (s[element] == accept[reference])
 			{
-				length++;
-				match = 1;
+				counter++;
 			}
 			reference++;
 		}
-
-		if (match == 0)
-		{
-			return (length);
-		}
-
 		reference = 0;
-		match = 0;
 		element++;
 	}
-	return (length);
+	return (counter);
+}
+
+int main(void)
+
+{
+    char *s = "First, solve the problem. Then, write the code.";
+    char *f = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXY";
+    unsigned int n;
+
+    n = strspn(s, f);
+    printf("%u\n", n);
+    return (0);
 }
 
