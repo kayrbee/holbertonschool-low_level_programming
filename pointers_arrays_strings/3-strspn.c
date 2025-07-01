@@ -12,9 +12,9 @@ unsigned int _strspn(char *s, char *accept)
 	int reference = 0;
 	unsigned int counter = 0;
 
-	while (s[element] != 0)
+	while (s[element] != '\0')
 	{
-		while (accept[reference] != 0)
+		while (accept[reference] != '\0')
 		{
 			if (s[element] == accept[reference])
 			{
@@ -26,5 +26,16 @@ unsigned int _strspn(char *s, char *accept)
 		element++;
 	}
 	return (counter);
+}
+
+int main(void)
+{
+    char *s = "hello, world";
+    char *f = "oleh";
+    unsigned int n;
+
+    n = _strspn(s, f);
+    printf("%u\n", n);
+    return (0);
 }
 
