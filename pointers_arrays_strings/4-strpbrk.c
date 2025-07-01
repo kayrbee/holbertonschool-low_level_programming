@@ -1,4 +1,5 @@
 #include "main.h"
+#include <stddef.h>
 /**
  * _strpbrk - locate the first occurrence of a reference char in string
  * @s: string to evaluate, from main
