@@ -1,4 +1,5 @@
 #include "main.h"
+#include <stdlib.h>
 /**
  * _strstr - find a string within a string
  * @haystack: string to search within
