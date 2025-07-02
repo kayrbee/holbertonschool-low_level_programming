@@ -1,34 +1,18 @@
 #include "main.h"
-/**
- * _strchr - find first occurrence of a char
- * @s: string to be parsed, sent from main
- * @c: character to find
- * Return: pointer to found char, or null if char not found
- */
+#include <stdlib.h>
+
 char *_strchr(char *s, char c)
 {
-	int i = 0;
-	char *location;
-	int search_complete = 0;
+	int e = 0;
 
-	while (s[i] != '\0')
+	while (s[e] != '\0')
 	{
-		if (s[i] == c && search_complete == 0)
+		if (s[e] == c)
 		{
-			/* update pointer */
-			location = (s + i);
-			/* exit loop */
-			search_complete = 1;
+			return (&s[e]);
 		}
-		i++;
+		e++;
 	}
-	if (search_complete == 0)
-	{
-		return (NULL);
-	}
-	else
-	{
-		return (location);
-	}
+	return (NULL);
 }
 
