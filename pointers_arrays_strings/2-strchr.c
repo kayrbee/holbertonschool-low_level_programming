@@ -17,7 +17,6 @@ char *_strchr(char *s, char c)
 		{
 			e++;
 		}
-		e = e - 1;
 		return (&s[e]);
 	}
 
