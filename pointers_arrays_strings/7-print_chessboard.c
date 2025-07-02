@@ -16,10 +16,10 @@ void print_chessboard(char (*a)[8])
 	{
 		for (j = 0; j <= 7; j++)
 		{
-			putchar(a[i][j]);
+			_putchar(a[i][j]);
 			inner++;
 		}
-		putchar('\n');
+		_putchar('\n');
 		j = 0;
 	}
 }
