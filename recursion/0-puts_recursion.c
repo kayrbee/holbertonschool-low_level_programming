@@ -1,9 +1,10 @@
 #include "main.h"
 
 /**
- * _puts_recursion - put chars in a string using recursion
- * @s: string to print out
- * Return: nothing
+ * _puts_recursion - check the code
+ * @s: pointer to the first string element
+ *
+ * Return: absolutely nothing.
  */
 void _puts_recursion(char *s)
 {
