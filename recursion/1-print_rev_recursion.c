@@ -12,12 +12,15 @@ void _print_rev_recursion(char *s)
 
 	if (s[i] != '\0')
 	{
-		_puts_recursion(s[i + 1]);
-		_putchar(s[i]);
-	}
-	else
-	{
-		_putchar('\n');
+		_print_rev_recursion(&s[(i + 1)]);
+		putchar(s[i]);
 	}
 }
+
+int main(void)
+{
+    _print_rev_recursion("\nColton Walker");
+    return (0);
+}
+
 
