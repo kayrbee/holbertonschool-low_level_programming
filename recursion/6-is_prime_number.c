@@ -10,13 +10,18 @@ int is_prime_number(int n)
 	int number = n;
 	int max = ((n - 1) / 2);
 
-	if (number % 2 == 0)
+	if (number == 2)
 	{
 		return (1);
+	}
+	if (number % 2 == 0 || number < 0 || number == 1)
+	{
+		return (0);
 	}
 
 	return (prime_helper(number, max));
 }
+
 /**
  * prime_helper - uses recursion to determine if number is prime
  * @number: number to check, passed from is_prime_number
@@ -28,20 +33,19 @@ int prime_helper(int number, int max)
 {
 	if (max % 2 == 0)
 	{
-		max = (max - 1);
+		max = max - 1;
 	}
 
-	if ((number % max) == 0)
-	{
-		return (0);
-	}
-	else if (max == 1)
+	if (max == 1)
 	{
 		return (1);
 	}
-	else
+
+	if (number % max == 0)
 	{
-		return (prime_helper(number, max - 2));
+		return (0);
 	}
 
+	return (prime_helper(number, max - 2));
 }
+
