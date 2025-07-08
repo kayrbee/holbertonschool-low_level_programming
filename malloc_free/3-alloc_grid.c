@@ -1,36 +1,51 @@
 #include "main.h"
-#include <stdio.h>
 #include <stdlib.h>
+#include <stdio.h>
 
 /**
  * alloc_grid - allocate memory for a 2D int array
  * @width: number of columns to set
  * @height: number of rows to set
- * Return: pointer to created array or NULL on failure
+ * Return: pointer to array of pointers or NULL on failure
  */
-
 int **alloc_grid(int width, int height)
 {
-	int size = width * height;
-	int **int_array;
-	int i = 0;
+	int **grid;
+	int w = 0;
+	int h = 0;
 
 	if (width < 1 || height < 1)
 	{
 		return (NULL);
 	}
-
-	int_array = malloc(sizeof(int) * size);
-
-	if (int_array == NULL)
+	grid = malloc(sizeof(int *) * height);
+	if (grid == NULL)
 	{
+		free(grid);
 		return (NULL);
 	}
-
-	for (i = 0; i < size; i++)
+	while (h < height)
 	{
-		int_array[i] = 0;
+		grid[h] = malloc(sizeof(int) * width);
+
+		if (grid[h] == NULL)
+		{
+			while (h >= 0)
+			{
+				free(grid[h]);
+				h = h - 1;
+			}
+			free(grid);
+		}
+		while (w < width)
+		{
+			grid[h][w] = 0;
+			w = w + 1;
+		}
+		w = 0;
+		h = h + 1;
 	}
 
-	return (int_array);
+	return (grid);
 }
+
