@@ -6,17 +6,20 @@
  * free_grid - clear memory for a 2D int array
  * @grid: grid to remove
  * @height: number of rows in grid
- * Return: void 
+ * Return: void
  */
 void free_grid(int **grid, int height)
 {
 	int h = height;
 
-	while (h >= 0)
+	if (grid != NULL)
 	{
-		free(grid[h]);
-		h = h - 1;
+		while (h >= 0)
+		{
+			free(grid[h]);
+			h = h - 1;
+		}
+		free(grid);
 	}
-	free(grid);
 }
 
