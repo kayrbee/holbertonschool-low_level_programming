@@ -12,23 +12,28 @@
 void *_calloc(unsigned int nmemb, unsigned int size)
 {
 	void *ptr;
-	unsigned int array_size = nmemb * size;
 	unsigned int i = 0;
+	unsigned char *p;
 
-	if (array_size == 0)
+	/* Handle invalid array size requests */
+	if (nmemb == 0 || size == 0)
 	{
 		return (NULL);
 	}
+	/* request memory */
+	ptr = malloc(nmemb * size);
 
-	ptr = malloc(array_size);
-
+	/* validate result of malloc */
 	if (ptr == NULL)
 	{
 		return (NULL);
 	}
-	while (i < array_size)
+	/* Initialise array to 0 */
+	p = (unsigned char *)ptr;
+
+	while (i < (nmemb * size))
 	{
-		ptr[i] = 0;
+		p[i] = 0;
 		i++;
 	}
 	return (ptr);
