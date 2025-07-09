@@ -24,6 +24,10 @@ int *array_range(int min, int max)
 	{
 		return (NULL);
 	}
+	if (size == 0)
+	{
+		ptr[i] = min;
+	}
 	while (i < size)
 	{
 		ptr[i] = min;
