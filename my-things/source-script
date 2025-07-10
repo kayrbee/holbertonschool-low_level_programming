@@ -1,0 +1,9 @@
+#!/bin/bash
+
+if [[ "${BASH_SOURCE[0]}" == "${0}" ]]; then
+    echo "⚠️  Please run this script with: source $0"
+    exit 1
+fi
+
+source set-up-github
+source set-aliases

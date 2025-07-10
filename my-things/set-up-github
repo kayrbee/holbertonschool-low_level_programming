@@ -1,0 +1,15 @@
+#!/bin/bash
+
+if [[ "${BASH_SOURCE[0]}" == "${0}" ]]; then
+    echo "⚠️  Please run this script with: source $0"
+    exit 1
+fi
+
+if [ -z "$EMAIL" ]; then
+    echo "❌ Environment variables are not set!"
+    exit 1
+fi
+
+
+echo "Setting git config..."
+git config --global user.email "$EMAIL" && git config --global user.name "$NAME"
