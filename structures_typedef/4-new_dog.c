@@ -10,9 +10,21 @@
  * @owner: dog owner
  * Return: new dog of type dog_t
  */
+int _strlen(char *s)
+{
+	int len = 0;
+
+	while (s[len] != '\0')
+	{
+		len++;
+	}
+	return (len);
+}
 dog_t *new_dog(char *name, float age, char *owner)
 {
 	dog_t *doggorego;
+	int len_name = _strlen(name);
+	int len_owner = _strlen(owner);
 	char *cpy_name;
 	char *cpy_owner;
 
@@ -21,7 +33,7 @@ dog_t *new_dog(char *name, float age, char *owner)
 	{
 		return (NULL);
 	}
-	cpy_name = malloc(strlen(name) + 1);
+	cpy_name = malloc(len_name + 1);
 
 	if (cpy_name == NULL)
 	{
@@ -30,7 +42,7 @@ dog_t *new_dog(char *name, float age, char *owner)
 
 	strcpy(cpy_name, name);
 
-	cpy_owner = malloc(strlen(owner) + 1);
+	cpy_owner = malloc(len_owner + 1);
 
 	if (cpy_owner == NULL)
 	{
