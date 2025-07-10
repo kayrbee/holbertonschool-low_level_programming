@@ -1,6 +1,6 @@
 #include "dog.h"
 #include <stdio.h>
-
+#include <math.h>
 /**
  * print_dog - print the attributes of my_dog
  * @d: pointer to struct my_dog, provided by main
@@ -8,8 +8,6 @@
  */
 void print_dog(struct dog *d)
 {
-	int i = 0;
-
 	if (d != NULL)
 	{
 
@@ -18,10 +16,10 @@ void print_dog(struct dog *d)
 		else
 			printf("Name: (nil)\n");
 
-		if (d->age != NULL)
-			printf("Age: %f\n", d->age);
-		else
+		if (isnan (d->age))
 			printf("Age: (nil)\n");
+		else
+			printf("Age: %f\n", d->age);
 
 		if (d->owner != NULL)
 			printf("Owner: %s\n", d->owner);
