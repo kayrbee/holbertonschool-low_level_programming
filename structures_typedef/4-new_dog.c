@@ -20,6 +20,21 @@ int _strlen(char *s)
 	}
 	return (len);
 }
+
+char *_strcpy(char *dest, char *src)
+{
+	int element = 0;
+
+	while (src[element] != '\0')
+	{
+		dest[element] = src[element];
+		element++;
+	}
+
+	dest[element] = '\0';
+	return (dest);
+}
+
 dog_t *new_dog(char *name, float age, char *owner)
 {
 	dog_t *doggorego;
@@ -40,7 +55,7 @@ dog_t *new_dog(char *name, float age, char *owner)
 		return (NULL);
 	}
 
-	strcpy(cpy_name, name);
+	_strcpy(cpy_name, name);
 
 	cpy_owner = malloc(len_owner + 1);
 
@@ -49,7 +64,7 @@ dog_t *new_dog(char *name, float age, char *owner)
 		return (NULL);
 	}
 
-	strcpy(cpy_owner, owner);
+	_strcpy(cpy_owner, owner);
 
 	doggorego->name = cpy_name;
 	doggorego->age = age;
