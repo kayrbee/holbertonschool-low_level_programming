@@ -5,6 +5,7 @@ if [ -z "$EMAIL" ]; then
     exit 1
 fi
 
+cd "$WORK_DIR"*
 
 echo "Setting git config..."
 git config --global user.email "$EMAIL" && git config --global user.name "$NAME"
