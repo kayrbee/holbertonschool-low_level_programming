@@ -2,13 +2,11 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
+
 /**
- * new_dog - function to create a new dog
- *           store a copy of the name and owner details
- * @name: dog name
- * @age: dog age
- * @owner: dog owner
- * Return: new dog of type dog_t
+ * _strlen - duplicates the functionality of a perfectly good stdlib fn
+ * @s: string to measure
+ * Return: length of string
  */
 int _strlen(char *s)
 {
@@ -21,6 +19,12 @@ int _strlen(char *s)
 	return (len);
 }
 
+/**
+ * _strcpy - duplicates the functionality of a perfectly good stdlib fn
+ * @dest: destination string
+ * @src: source string
+ * Return: pointer to copied string
+ */
 char *_strcpy(char *dest, char *src)
 {
 	int element = 0;
@@ -35,6 +39,14 @@ char *_strcpy(char *dest, char *src)
 	return (dest);
 }
 
+/**
+ * new_dog - function to create a new dog
+ *           store a copy of the name and owner details
+ * @name: dog name
+ * @age: dog age
+ * @owner: dog owner
+ * Return: new dog of type dog_t
+ */
 dog_t *new_dog(char *name, float age, char *owner)
 {
 	dog_t *doggorego;
