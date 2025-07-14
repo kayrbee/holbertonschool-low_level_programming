@@ -5,5 +5,7 @@ if [[ "${BASH_SOURCE[0]}" == "${0}" ]]; then
     exit 1
 fi
 
-source set-up-github
-source set-aliases
+SCRIPT_DIR=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
+
+source "$SCRIPT_DIR/set-up-github"
+source "$SCRIPT_DIR/set-aliases"
