@@ -1,7 +1,11 @@
 #include "main.h"
+#include <stdlib.h>
 
 void print_name(char *name, void (*f)(char *))
 {
-	f(name);
+	if (name != NULL)
+	{
+		f(name);
+	}
 }
 
