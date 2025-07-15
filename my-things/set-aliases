@@ -5,11 +5,10 @@ if [[ "${BASH_SOURCE[0]}" == "${0}" ]]; then
     exit 1
 fi
 
+echo "Setting aliases..."
 export PS1='\W \$ '
 alias ga="git add"
 alias gs="git status"
 alias gc="git commit"
 alias gp="git push"
 
-cd .. && pwd
-ls
