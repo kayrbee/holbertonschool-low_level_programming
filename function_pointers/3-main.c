@@ -11,8 +11,7 @@
 int main(int argc, char **argv)
 {
 	int a, b;
-	char *op;
-	int operator;
+	char *operator;
 	int result = 0;
 
 	operator = get_op_function(argv[2]);
