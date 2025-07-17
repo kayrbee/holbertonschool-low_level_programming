@@ -14,7 +14,7 @@ int main(int argc, char **argv)
 	char *operator;
 	int result = 0;
 
-	operator = get_op_function(argv[2]);
+	operator = get_op_func(argv[2]);
 
 	if (argc != 4)
 	{
