@@ -21,11 +21,25 @@ void print_strings(const char *separator, const unsigned int n, ...)
 		{
 			if (separator != NULL)
 			{
-				printf("%s%s", separator, va_arg(strings, char *));
+				if (va_arg(strings, char *) == NULL)
+				{
+					printf("%s(nil)", separator);
+				}
+				else
+				{
+					printf("%s%s", separator, va_arg(strings, char *));
+				}
 			}
 			else
 			{
-				printf("%s", va_arg(strings, char *));
+				if (va_arg(strings, char *) == NULL)
+				{
+					printf("(nil)");
+				}
+				else
+				{
+					printf("%s", va_arg(strings, char *));
+				}
 			}
 		}
 	}
