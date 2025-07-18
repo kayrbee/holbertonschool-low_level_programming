@@ -10,15 +10,17 @@ void print_all(const char * const format, ...)
 	va_start(item, format);
 	while (format[i] != '\0')
 	{
-		if (*format == 's')
-			printf("%s\n", va_arg(item, char *));
+		if (format[i] == 's')
+			printf("String: %s\n", va_arg(item, char *));
+		if (format[i] == 'c')
+			printf("Char: %c\n", va_arg(item, int));
 		i++;
 	}
 	va_end(item);
 }
 int main(void)
 {
-    print_all("ss", "stSchool", "second");
+    print_all("ssc", "stSchool", "second", 'c');
     return (0);
 }
 
