@@ -12,25 +12,30 @@ void print_strings(const char *separator, const unsigned int n, ...)
 {
 	va_list strings;
 	unsigned int i = 0;
-	char *tmp;
 
 	va_start(strings, n);
 	if (n != 0)
 	{
-		for (i = 0; i < n; i++)
+		printf("%s", va_arg(strings, char *));
+		for (i = 1; i < n; i ++)
 		{
-			tmp = va_arg(strings, char *);
-
-			if (tmp != NULL)
-				printf("%s", tmp);
+			if (separator != NULL)
+			{
+				printf("%s%s", separator, va_arg(strings, char *));
+			}
 			else
-				printf("(nil)");
-
-			if (separator != NULL && i < (n - 1))
-				printf("%s", separator);
+			{
+				printf("%s", va_arg(strings, char *));
+			}
 		}
 	}
 	printf("\n");
 	va_end(strings);
+}
+
+int main(void)
+{
+    print_strings("; ", 2, "Jay", "Django", NULL);
+    return (0);
 }
 
