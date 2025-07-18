@@ -8,13 +8,17 @@ void print_all(const char * const format, ...)
 	int i = 0;
 
 	va_start(item, format);
-	if (*format == 's')
-		printf("%s\n", va_arg(item, char *));
+	while (format[i] != '\0')
+	{
+		if (*format == 's')
+			printf("%s\n", va_arg(item, char *));
+		i++;
+	}
 	va_end(item);
 }
 int main(void)
 {
-    print_all("s", "stSchool");
+    print_all("ss", "stSchool", "second");
     return (0);
 }
 
