@@ -2,6 +2,10 @@
 #include <stdarg.h>
 #include <stdio.h>
 
+/**
+ * TO DO: implement a struct for valid format specifiers
+ *        Use a key-value pair to look up the format function to use
+ */
 void print_all(const char * const format, ...)
 {
 	va_list item;
@@ -20,7 +24,7 @@ void print_all(const char * const format, ...)
 }
 int main(void)
 {
-    print_all("ssc", "stSchool", "second", 'c');
+    print_all("ssci", "stSchool", "second", 'c', 4);
     return (0);
 }
 
