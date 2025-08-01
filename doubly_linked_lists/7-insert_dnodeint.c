@@ -42,9 +42,9 @@ dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 	{
 		is_null = 1;
 	}
-	else
+	if (idx != 0)
 	{
-		/* If list not empty, look up indexed list item */
+		/* If list not empty AND idx > 0, look up indexed list item */
 		insert_at = get_dnodeint_at_index(insert_at, (idx - 1));
 	}
 
@@ -64,6 +64,11 @@ dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 	if (insert_at == NULL)
 	{
 		return (NULL);
+	}
+	if (insert_at->next == NULL)
+	{
+		insert_at->next = new_node;
+		new_node->prev = insert_at;
 	}
 	else
 	{
