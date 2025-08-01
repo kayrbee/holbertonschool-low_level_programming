@@ -39,8 +39,6 @@ dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 	/* Look up indexed list item */
 	insert_at = get_dnodeint_at_index(insert_at, (idx - 1));
 
-	if (insert_at == NULL)
-		return (NULL);
 	/* Create new node */
 	new_node = malloc(sizeof(new_node));
 	if (new_node == NULL)
@@ -49,6 +47,11 @@ dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 	new_node->prev = NULL;
 	new_node->next = NULL;
 	/* Modify list links */
+	if (insert_at == NULL)
+	{
+		*h = new_node;
+		return (new_node);
+	}
 	new_node->next = insert_at->next;
 	new_node->prev = insert_at;
 	insert_at->next = new_node;
