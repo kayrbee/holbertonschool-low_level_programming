@@ -24,6 +24,26 @@ dlistint_t *get_dnodeint_at_index(dlistint_t *head, unsigned int index)
 	else
 		return (NULL);
 }
+
+/**
+ * create_node - create a new node for a list
+ * @n: value
+ * Return: address of new node
+ */
+dlistint_t *create_node(int n)
+{
+	dlistint_t *new_node;
+
+	new_node = malloc(sizeof(new_node));
+	if (new_node == NULL)
+		return (NULL);
+	new_node->n = n;
+	new_node->prev = NULL;
+	new_node->next = NULL;
+
+	return (new_node);
+}
+
 /**
  * insert_dnodeint_at_index - inserts a new node in list at position idx
  * @h: head of list
@@ -33,31 +53,19 @@ dlistint_t *get_dnodeint_at_index(dlistint_t *head, unsigned int index)
  */
 dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 {
-	dlistint_t *insert_at = *h;
-	dlistint_t *new_node;
+	dlistint_t *insert_at = *h, *new_node;
+	int value = n;
 	int is_null = 0;
 
-	/* check if list is empty */	
 	if (insert_at == NULL)
-	{
 		is_null = 1;
-	}
 	if (idx != 0)
 	{
-		/* If list not empty AND idx > 0, look up indexed list item */
 		insert_at = get_dnodeint_at_index(insert_at, (idx - 1));
 		if (insert_at == NULL)
 			return (NULL);
 	}
-
-	/* Create new node */
-	new_node = malloc(sizeof(new_node));
-	if (new_node == NULL)
-		return (NULL);
-	new_node->n = n;
-	new_node->prev = NULL;
-	new_node->next = NULL;
-	/* Modify list links */
+	new_node = create_node(value);
 	if (is_null == 1)
 	{
 		*h = new_node;
