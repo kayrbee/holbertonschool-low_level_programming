@@ -35,9 +35,18 @@ dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 {
 	dlistint_t *insert_at = *h;
 	dlistint_t *new_node;
+	int is_null = 0;
 
-	/* Look up indexed list item */
-	insert_at = get_dnodeint_at_index(insert_at, (idx - 1));
+	/* check if list is empty */	
+	if (insert_at == NULL)
+	{
+		is_null = 1;
+	}
+	else
+	{
+		/* If list not empty, look up indexed list item */
+		insert_at = get_dnodeint_at_index(insert_at, (idx - 1));
+	}
 
 	/* Create new node */
 	new_node = malloc(sizeof(new_node));
@@ -47,17 +56,23 @@ dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 	new_node->prev = NULL;
 	new_node->next = NULL;
 	/* Modify list links */
-	if (insert_at == NULL)
+	if (is_null == 1)
 	{
 		*h = new_node;
 		return (new_node);
 	}
-	new_node->next = insert_at->next;
-	new_node->prev = insert_at;
-	insert_at->next = new_node;
-	insert_at = new_node->next;
-	insert_at->prev = new_node;
-
+	if (insert_at == NULL)
+	{
+		return (NULL);
+	}
+	else
+	{
+		new_node->next = insert_at->next;
+		new_node->prev = insert_at;
+		insert_at->next = new_node;
+		insert_at = new_node->next;
+		insert_at->prev = new_node;
+	}
 	return (new_node);
 }
 
