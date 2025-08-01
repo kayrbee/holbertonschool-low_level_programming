@@ -46,6 +46,8 @@ dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 	{
 		/* If list not empty AND idx > 0, look up indexed list item */
 		insert_at = get_dnodeint_at_index(insert_at, (idx - 1));
+		if (insert_at == NULL)
+			return (NULL);
 	}
 
 	/* Create new node */
