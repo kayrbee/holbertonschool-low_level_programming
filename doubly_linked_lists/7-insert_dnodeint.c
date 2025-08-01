@@ -55,17 +55,23 @@ dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 	new_node->n = n;
 	new_node->prev = NULL;
 	new_node->next = NULL;
+	if (insert_at == NULL)
+	{
+		return (NULL);
+	}
 	/* Modify list links */
 	if (is_null == 1)
 	{
 		*h = new_node;
 		return (new_node);
 	}
-	if (insert_at == NULL)
+	if (idx == 0)
 	{
-		return (NULL);
+		*h = new_node;
+		new_node->next = insert_at;
+		insert_at->prev = new_node;
 	}
-	if (insert_at->next == NULL)
+	else if (insert_at->next == NULL)
 	{
 		insert_at->next = new_node;
 		new_node->prev = insert_at;
