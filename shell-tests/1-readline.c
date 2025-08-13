@@ -1,7 +1,10 @@
 #include <stdio.h>
 
-void main(ac, **av)
+void main()
 {
+	char *command;
+
 	printf("$ ");
-	getline()
+	command = getline();
+	printf("%s\n", command);
 }
