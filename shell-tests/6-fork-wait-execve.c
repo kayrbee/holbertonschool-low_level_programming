@@ -20,7 +20,10 @@ int main(void)
 	if (child_pid == -1)
 		perror("Something went wrong!");
 	if (child_pid == 0)
+	{
 		printf("Child - My pid: %u\n", parent_pid);
+		execve(argv[0], argv, NULL);
+	}
 	else
 	{
 		wait(&status);
