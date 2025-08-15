@@ -3,13 +3,13 @@
 #include <unistd.h>
 #include <sys/wait.h>
 #include <string.h>
-extern char **environ; // captures external env vars
+extern char **environ; //Captures external env vars
 
 int main()
 {
 	char *line;		//Feeds getline buffer, stores user input
 	size_t buffer_size = 0;	//Holds allocated size of getline buffer
-	int child;
+	int child;		//Holds return value of fork
 
 	child = fork();
 
@@ -20,9 +20,14 @@ int main()
 	}
 	else if (child == 0)
 	{
-		printf("$: ");
-		getline(&line, &buffer_size, stdin);
-		line[strcspn(line, "\n")] = '\0'; // trim trailing newline
+		printf("kayrbee_sh$: ");
+		if (getline(&line, &buffer_size, stdin) == 1)
+		{
+			perror("getline failed\n");
+			free(line);
+			return (1);
+		}
+		line[strcspn(line, "\n")] = '\0'; //Trim trailing newline
 		char *argv[] = {line, NULL};
 		if (execve(argv[0], argv, environ) == -1)
 		{
