@@ -2,18 +2,33 @@
 #include <stdlib.h>
 #include <string.h>
 /*
- * Start simple: parse $PATH
+ * Start simple: 
+ * - parse $PATH
+ * - handle exactly 2 argv arguments
+ * - assume that argv[1] is the first path in $PATH
  */
-extern char **environ;
-int main()
+int main(int argc, char **argv)
 {
 	char *str_path = getenv("PATH");
 	char *token = strtok(str_path, ":");
 
-	while (token != NULL) //Parse whole string
+	if (argc > 2)
 	{
-		printf("%s\n", token);
-		token = strtok(NULL, ":");
+		perror("Ill-equipped for this, try again later\n");
+		exit(1);
+	}
+	while (token != NULL)
+	{
+		if ((strcmp(argv[1], token) == 0))
+		{
+			printf("MATCH!\n");
+			exit(0);
+		}
+		else
+		{
+			printf("No match...try next\n");
+			token = strtok(NULL, ":");
+		}
 	}
 	return (0);
 }
