@@ -2,23 +2,15 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include <sys/wait.h>
-int main(int argc, char **argv)
+#include <string.h>
+extern char **environ;
+
+int main()
 {
 	char *line;
 	size_t buffer_size = 0;
 	ssize_t num_chars_read;
 	int child;
-
-	/* To do: put this logic in the right place
-	 * Expected:
-	 *   argv is provided within the super simple shell
-	 * Actual:
-	 *   argv is provided within main */
-	if (argc != 1)
-	{
-		printf("Error: wrong number of arguments\n");
-		exit(1);
-	}
 
 	child = fork();
 
@@ -29,16 +21,22 @@ int main(int argc, char **argv)
 	}
 	else if (child == 0)
 	{
-		printf("Child process calls execve\n");
 		printf("$: ");
 		num_chars_read = getline(&line, &buffer_size, stdin);
-		printf("Echoing...\n%s\n", line);
-//		execve(argv[0], NULL, NULL);
+		printf("Echoing...\n%s", line);
+		line[strcspn(line, "\n")] = '\0'; // trim trailing newline
+		char *argv[] = {line, NULL};
+		if (execve(argv[0], argv, environ) == -1)
+		{
+			perror("execve failed");
+			exit(EXIT_FAILURE);
+		}
 	}
 	else
 	{
-		printf("Parent process waits patiently\n");
+		printf("Parent process waits patiently...\n");
 		wait(NULL);
+		printf("Parent process finished! Goodbye ~\n");
 		return (0);
 	}
 }
