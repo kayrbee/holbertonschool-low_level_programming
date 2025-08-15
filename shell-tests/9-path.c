@@ -14,21 +14,26 @@ int main(int argc, char **argv)
 {
 	char *str_path = getenv("PATH");
 	char *token = strtok(str_path, ":");
-	int i = 1;
+	char *token_arr[argc - 1];
+	int i = 1, j = 0;
 
 	if (argc == 1)
 	{
 		printf("Wrong number of arguments\n");
 		exit(1);
 	}
+	while (token != NULL) //Collect array of tokens
+	{
+		token_arr[j++] = token;
+		token = strtok(NULL, ":");
+	}
 	while (i < argc)
 	{
-		while (token != NULL)
+		while (token_arr != NULL)
 		{
-			if ((strcmp(argv[i], token) != 0))
+			if ((strcmp(argv[i], token_arr[j]) != 0))
 			{
 				printf("No match...try next token\n");
-				token = strtok(NULL, ":");
 			}
 			else
 			{
@@ -36,6 +41,7 @@ int main(int argc, char **argv)
 				break;
 			}
 		}
+		j = 0;
 		i++;
 		printf("Moving to argv[%d]\n", i);
 	}
