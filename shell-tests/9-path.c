@@ -10,25 +10,30 @@ int main(int argc, char **argv)
 {
 	char *str_path = getenv("PATH");
 	char *token = strtok(str_path, ":");
+	int i = 1;
 
-	if (argc > 2)
+	if (argc == 1)
 	{
-		perror("Ill-equipped for this, try again later\n");
+		printf("Wrong number of arguments\n");
 		exit(1);
 	}
-	while (token != NULL)
+	while (i < argc)
 	{
-		if ((strcmp(argv[1], token) != 0))
+		while (token != NULL)
 		{
-			printf("No match...try next\n");
-			token = strtok(NULL, ":");
+			if ((strcmp(argv[i], token) != 0))
+			{
+				printf("No match...try next token\n");
+				token = strtok(NULL, ":");
+			}
+			else
+			{
+				printf("MATCH!\n");
+				break;
+			}
 		}
-		else
-		{
-			printf("MATCH!\n");
-			exit(0);
-		}
+		i++;
+		printf("Moving to argv[%d]\n", i);
 	}
-	printf("No matches found in $PATH\n");
 	return (0);
 }
