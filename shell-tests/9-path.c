@@ -5,6 +5,10 @@
  * Start simple: 
  * - parse $PATH
  * - handle exactly 2 argv arguments
+ * - handle multiple argv arguments
+ *   TO DO
+ * - FIX: bug in logic around mixed input (match & non-match)
+ *   Possibly because value of token doesn't loop back 
  */
 int main(int argc, char **argv)
 {
