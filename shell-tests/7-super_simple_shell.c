@@ -10,6 +10,7 @@ int main()
 	char *line;		//Feeds getline buffer, stores user input
 	size_t buffer_size = 0;	//Holds allocated size of getline buffer
 	int child;		//Holds return value of fork
+	char *argv[] = {NULL, NULL};
 
 	child = fork();
 
@@ -28,7 +29,7 @@ int main()
 			return (1);
 		}
 		line[strcspn(line, "\n")] = '\0'; //Trim trailing newline
-		char *argv[] = {line, NULL};
+		argv[0] = line;
 		if (execve(argv[0], argv, environ) == -1)
 		{
 			perror("execve failed");
