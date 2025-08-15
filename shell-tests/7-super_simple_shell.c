@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
+#include <sys/wait.h>
 int main(int argc, char **argv)
 {
 	char *line;
@@ -8,13 +9,16 @@ int main(int argc, char **argv)
 	ssize_t num_chars_read;
 	int child;
 
-	if (argc != 2)
+	/* To do: put this logic in the right place
+	 * Expected:
+	 *   argv is provided within the super simple shell
+	 * Actual:
+	 *   argv is provided within main */
+	if (argc != 1)
 	{
 		printf("Error: wrong number of arguments\n");
 		exit(1);
 	}
-	printf("$: ");
-	num_chars_read = getline(&line, &buffer_size, stdin);
 
 	child = fork();
 
@@ -26,11 +30,15 @@ int main(int argc, char **argv)
 	else if (child == 0)
 	{
 		printf("Child process calls execve\n");
+		printf("$: ");
+		num_chars_read = getline(&line, &buffer_size, stdin);
+		printf("Echoing...\n%s\n", line);
 //		execve(argv[0], NULL, NULL);
 	}
 	else
 	{
-		printf("Parent process does nothing\n");
+		printf("Parent process waits patiently\n");
+		wait(NULL);
 		return (0);
 	}
 }
