@@ -5,7 +5,6 @@
  * Start simple: 
  * - parse $PATH
  * - handle exactly 2 argv arguments
- * - assume that argv[1] is the first path in $PATH
  */
 int main(int argc, char **argv)
 {
@@ -30,5 +29,6 @@ int main(int argc, char **argv)
 			exit(0);
 		}
 	}
+	printf("No matches found in $PATH\n");
 	return (0);
 }
