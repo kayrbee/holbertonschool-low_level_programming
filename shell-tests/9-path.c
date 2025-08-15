@@ -19,15 +19,15 @@ int main(int argc, char **argv)
 	}
 	while (token != NULL)
 	{
-		if ((strcmp(argv[1], token) == 0))
-		{
-			printf("MATCH!\n");
-			exit(0);
-		}
-		else
+		if ((strcmp(argv[1], token) != 0))
 		{
 			printf("No match...try next\n");
 			token = strtok(NULL, ":");
+		}
+		else
+		{
+			printf("MATCH!\n");
+			exit(0);
 		}
 	}
 	return (0);
