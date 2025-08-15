@@ -17,13 +17,12 @@ int main()
 	if (child == -1)
 	{
 		perror("Fork you\n");
-		exit (1);
+		exit(EXIT_FAILURE);
 	}
 	else if (child == 0)
 	{
 		printf("$: ");
 		num_chars_read = getline(&line, &buffer_size, stdin);
-		printf("Echoing...\n%s", line);
 		line[strcspn(line, "\n")] = '\0'; // trim trailing newline
 		char *argv[] = {line, NULL};
 		if (execve(argv[0], argv, environ) == -1)
@@ -34,9 +33,7 @@ int main()
 	}
 	else
 	{
-		printf("Parent process waits patiently...\n");
 		wait(NULL);
-		printf("Parent process finished! Goodbye ~\n");
 		return (0);
 	}
 }
